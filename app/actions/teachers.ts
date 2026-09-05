@@ -1,4 +1,4 @@
-'use server';
+﻿'use server';
 
 import { createClient } from '@/lib/supabase/server';
 import { revalidatePath } from 'next/cache';
@@ -35,7 +35,7 @@ export async function createTeacher(formData: FormData) {
     return { error: error.message };
   }
 
-  revalidatePath('/dashboard/teachers');
+  revalidatePath('/dashboard', 'layout');
   return { success: true };
 }
 
@@ -57,7 +57,7 @@ export async function updateTeacher(id: string, formData: FormData) {
     return { error: error.message };
   }
 
-  revalidatePath('/dashboard/teachers');
+  revalidatePath('/dashboard', 'layout');
   return { success: true };
 }
 
@@ -69,7 +69,7 @@ export async function deleteTeacher(id: string) {
     return { error: error.message };
   }
   
-  revalidatePath('/dashboard/teachers');
+  revalidatePath('/dashboard', 'layout');
   return { success: true };
 }
 
@@ -107,6 +107,6 @@ export async function importTeachersCsv(formData: FormData) {
     return { error: error.message };
   }
 
-  revalidatePath('/dashboard/teachers');
+  revalidatePath('/dashboard', 'layout');
   return { success: true, count: rowsToInsert.length };
 }

@@ -44,7 +44,7 @@ export async function createSubject(formData: FormData) {
   const { error } = await supabase.from('subjects').insert(parsed.data);
   if (error) return { error: error.message };
 
-  revalidatePath('/dashboard/subjects');
+  revalidatePath('/dashboard', 'layout');
   return { success: true };
 }
 
@@ -68,7 +68,7 @@ export async function updateSubject(id: string, formData: FormData) {
   const { error } = await supabase.from('subjects').update(parsed.data).eq('id', id);
   if (error) return { error: error.message };
 
-  revalidatePath('/dashboard/subjects');
+  revalidatePath('/dashboard', 'layout');
   return { success: true };
 }
 
@@ -80,7 +80,7 @@ export async function deleteSubject(id: string) {
     return { error: error.message };
   }
   
-  revalidatePath('/dashboard/subjects');
+  revalidatePath('/dashboard', 'layout');
   return { success: true };
 }
 
@@ -140,6 +140,6 @@ export async function importSubjectsCsv(formData: FormData) {
   const { error } = await supabase.from('subjects').insert(rowsToInsert);
   if (error) return { error: error.message };
 
-  revalidatePath('/dashboard/subjects');
+  revalidatePath('/dashboard', 'layout');
   return { success: true, count: rowsToInsert.length };
 }

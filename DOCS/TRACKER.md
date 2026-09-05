@@ -14,7 +14,7 @@ Living document — update after every development session. Statuses: `NOT_START
 | 2 | Authentication | COMPLETED | Must have | Phase 1 |
 | 3 | Master Data: Rooms & Teachers | COMPLETED | Must have | Phase 2 |
 | 4 | Master Data: Subjects & Sections | COMPLETED | Must have | Phase 3 |
-| 5 | Setup Wizard | NOT_STARTED | Must have | Phase 4 |
+| 5 | Setup Wizard | COMPLETED | Must have | Phase 4 |
 | 6 | Scheduling Engine (core) | NOT_STARTED | Must have | — |
 | 7 | Generate Flow (UI + API) | NOT_STARTED | Must have | Phase 5, 6 |
 | 8 | Review/Edit Grid | NOT_STARTED | Must have | Phase 7 |
@@ -34,7 +34,7 @@ Living document — update after every development session. Statuses: `NOT_START
 | Teachers CRUD + CSV import | COMPLETED | Zod server actions, DataTable, Modals (strict CSV) |
 | Subjects CRUD + CSV import | COMPLETED | FK relationships handled (sections dropdown, teacher optional), CSV resolves by name/email |
 | Sections CRUD + CSV import | COMPLETED | Zod server actions, DataTable, Modals |
-| Setup wizard (5 steps) | NOT_STARTED | |
+| Setup wizard (5 steps) | COMPLETED | Linear flow re-using master data UI components |
 | Scheduling engine — backtracking + most-constrained-first | NOT_STARTED | |
 | Scheduling engine — conflict checker (shared w/ manual edit) | NOT_STARTED | |
 | Generate flow (Keep manual / Fresh) | NOT_STARTED | |
@@ -118,3 +118,4 @@ Carried over from `TRD.md` §15 and `SCHEMA.md`, still to be resolved during/bef
 | 2026-09-05 | **Phase 2 COMPLETED** — UI (`app/login/page.tsx`), `/logout` route, server-side auth guards (`lib/auth.ts`), and landing stubs for all 3 roles created. Login dynamically routes to `/dashboard`, `/my-timetable`, or `/my-lectures` based on `public.users.role`. |
 | 2026-09-05 | **Phase 3 COMPLETED** — Admin Layout with sidebar added. UI Components `Modal`, `DataTable`, and `PageHeader` created. Full CRUD + CSV import via Server Actions (using Zod and PapaParse) for Rooms and Teachers created. Open question 2 (CSV import format) resolved to strict fixed template. |
 | 2026-09-05 | **Phase 4 COMPLETED** — Full CRUD + CSV import via Server Actions for Subjects and Sections. The Subject Add/Edit modal dynamically handles Foreign Key selection (fetching existing Sections and Teachers). Subject CSV imports dynamically resolve `section_name` and `teacher_email` to UUIDs in memory before bulk insertion. |
+| 2026-09-05 | **Phase 5 COMPLETED** — Built Setup Wizard (`/dashboard/setup`) reusing Phase 3 and Phase 4 UI components in a linear wizard flow. Updated all Phase 3 & 4 Server Actions to revalidate the entire `/dashboard` layout to ensure wizard state stays synced on edits/inserts. Linked from Admin Dashboard home. |

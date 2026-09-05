@@ -1,4 +1,4 @@
-'use server';
+﻿'use server';
 
 import { createClient } from '@/lib/supabase/server';
 import { revalidatePath } from 'next/cache';
@@ -37,7 +37,7 @@ export async function createRoom(formData: FormData) {
     return { error: error.message };
   }
 
-  revalidatePath('/dashboard/rooms');
+  revalidatePath('/dashboard', 'layout');
   return { success: true };
 }
 
@@ -60,7 +60,7 @@ export async function updateRoom(id: string, formData: FormData) {
     return { error: error.message };
   }
 
-  revalidatePath('/dashboard/rooms');
+  revalidatePath('/dashboard', 'layout');
   return { success: true };
 }
 
@@ -72,7 +72,7 @@ export async function deleteRoom(id: string) {
     return { error: error.message };
   }
   
-  revalidatePath('/dashboard/rooms');
+  revalidatePath('/dashboard', 'layout');
   return { success: true };
 }
 
@@ -114,6 +114,6 @@ export async function importRoomsCsv(formData: FormData) {
     return { error: error.message };
   }
 
-  revalidatePath('/dashboard/rooms');
+  revalidatePath('/dashboard', 'layout');
   return { success: true, count: rowsToInsert.length };
 }

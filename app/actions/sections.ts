@@ -33,7 +33,7 @@ export async function createSection(formData: FormData) {
     return { error: error.message };
   }
 
-  revalidatePath('/dashboard/sections');
+  revalidatePath('/dashboard', 'layout');
   return { success: true };
 }
 
@@ -54,7 +54,7 @@ export async function updateSection(id: string, formData: FormData) {
     return { error: error.message };
   }
 
-  revalidatePath('/dashboard/sections');
+  revalidatePath('/dashboard', 'layout');
   return { success: true };
 }
 
@@ -66,7 +66,7 @@ export async function deleteSection(id: string) {
     return { error: error.message };
   }
   
-  revalidatePath('/dashboard/sections');
+  revalidatePath('/dashboard', 'layout');
   return { success: true };
 }
 
@@ -103,6 +103,6 @@ export async function importSectionsCsv(formData: FormData) {
     return { error: error.message };
   }
 
-  revalidatePath('/dashboard/sections');
+  revalidatePath('/dashboard', 'layout');
   return { success: true, count: rowsToInsert.length };
 }

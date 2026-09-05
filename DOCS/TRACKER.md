@@ -13,7 +13,7 @@ Living document — update after every development session. Statuses: `NOT_START
 | 1 | Database & Schema | COMPLETED | Must have | Phase 0 |
 | 2 | Authentication | COMPLETED | Must have | Phase 1 |
 | 3 | Master Data: Rooms & Teachers | COMPLETED | Must have | Phase 2 |
-| 4 | Master Data: Subjects & Sections | NOT_STARTED | Must have | Phase 3 |
+| 4 | Master Data: Subjects & Sections | COMPLETED | Must have | Phase 3 |
 | 5 | Setup Wizard | NOT_STARTED | Must have | Phase 4 |
 | 6 | Scheduling Engine (core) | NOT_STARTED | Must have | — |
 | 7 | Generate Flow (UI + API) | NOT_STARTED | Must have | Phase 5, 6 |
@@ -32,8 +32,8 @@ Living document — update after every development session. Statuses: `NOT_START
 | Login / role-based redirect | COMPLETED | UI, `/logout`, middleware, and `lib/auth.ts` complete |
 | Rooms CRUD + CSV import | COMPLETED | Zod server actions, DataTable, Modals (strict CSV) |
 | Teachers CRUD + CSV import | COMPLETED | Zod server actions, DataTable, Modals (strict CSV) |
-| Subjects CRUD + CSV import | NOT_STARTED | |
-| Sections CRUD + CSV import | NOT_STARTED | |
+| Subjects CRUD + CSV import | COMPLETED | FK relationships handled (sections dropdown, teacher optional), CSV resolves by name/email |
+| Sections CRUD + CSV import | COMPLETED | Zod server actions, DataTable, Modals |
 | Setup wizard (5 steps) | NOT_STARTED | |
 | Scheduling engine — backtracking + most-constrained-first | NOT_STARTED | |
 | Scheduling engine — conflict checker (shared w/ manual edit) | NOT_STARTED | |
@@ -117,3 +117,4 @@ Carried over from `TRD.md` §15 and `SCHEMA.md`, still to be resolved during/bef
 | 2026-09-05 | **Phase 1 COMPLETED** — 9 migration files written to `supabase/migrations/`. All SCHEMA.md §3 tables, §5 indexes, §6 constraints, §9 migration order, and TRD.md §7 RLS policies implemented. Open question 1 (period config) resolved: periods fixed 1–8, days fixed 1–6 via CHECK constraints. |
 | 2026-09-05 | **Phase 2 COMPLETED** — UI (`app/login/page.tsx`), `/logout` route, server-side auth guards (`lib/auth.ts`), and landing stubs for all 3 roles created. Login dynamically routes to `/dashboard`, `/my-timetable`, or `/my-lectures` based on `public.users.role`. |
 | 2026-09-05 | **Phase 3 COMPLETED** — Admin Layout with sidebar added. UI Components `Modal`, `DataTable`, and `PageHeader` created. Full CRUD + CSV import via Server Actions (using Zod and PapaParse) for Rooms and Teachers created. Open question 2 (CSV import format) resolved to strict fixed template. |
+| 2026-09-05 | **Phase 4 COMPLETED** — Full CRUD + CSV import via Server Actions for Subjects and Sections. The Subject Add/Edit modal dynamically handles Foreign Key selection (fetching existing Sections and Teachers). Subject CSV imports dynamically resolve `section_name` and `teacher_email` to UUIDs in memory before bulk insertion. |

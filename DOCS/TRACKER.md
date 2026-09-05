@@ -10,7 +10,7 @@ Living document — update after every development session. Statuses: `NOT_START
 | Phase | Name | Status | Priority | Depends on |
 |---|---|---|---|---|
 | 0 | Project Setup | COMPLETED | Must have | — |
-| 1 | Database & Schema | NOT_STARTED | Must have | Phase 0 |
+| 1 | Database & Schema | COMPLETED | Must have | Phase 0 |
 | 2 | Authentication | NOT_STARTED | Must have | Phase 1 |
 | 3 | Master Data: Rooms & Teachers | NOT_STARTED | Must have | Phase 2 |
 | 4 | Master Data: Subjects & Sections | NOT_STARTED | Must have | Phase 3 |
@@ -114,4 +114,4 @@ Carried over from `TRD.md` §15 and `SCHEMA.md`, still to be resolved during/bef
 | — | Consistency pass: fixed TRD's role count (two → three), added missing `/api/sections` and `/api/timetable/unpublish` endpoints to TRD and Phase 9, added lab/room-type as a hard constraint across TRD/RULES/SCHEMA/DESIGN, resolved PRD's stale open questions (single-institution scope, unplaced-class resolution, room-type constraint), clarified `is_locked` vs publish-status locking in SCHEMA/DESIGN |
 | 2026-08-31 | APP_FLOW.md added to DOCS/ (was missing from initial set) |
 | 2026-08-31 | Deleted empty `TimeTableScheduler/` Python/Flask prototype folder (user-authorized — all files were zero-byte stubs, conflicted with documented Next.js architecture) |
-| 2026-09-05 | **Phase 0 COMPLETED** — scaffold verified: `app/globals.css` (CSS design tokens), `app/layout.tsx` (root layout), `app/page.tsx` (→ /login redirect), `lib/supabase/client.ts` (browser client), `lib/supabase/server.ts` (server + service-role clients), `middleware.ts` (session refresh + role-based route guard), `.env.local` / `.env.example` (env var stubs). TypeScript: clean (0 errors). Build: `next build` exits 0, all 4 pages generated. Decisions: fixed defaults chosen for period/day configuration (simpler, per TRD §15 recommendation) — to be confirmed before Phase 1 migration is written. |
+| 2026-09-05 | **Phase 1 COMPLETED** — 9 migration files written to `supabase/migrations/`. All SCHEMA.md §3 tables, §5 indexes, §6 constraints, §9 migration order, and TRD.md §7 RLS policies implemented. Open question 1 (period config) resolved: periods fixed 1–8, days fixed 1–6 via CHECK constraints. |

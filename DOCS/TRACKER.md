@@ -11,7 +11,7 @@ Living document — update after every development session. Statuses: `NOT_START
 |---|---|---|---|---|
 | 0 | Project Setup | COMPLETED | Must have | — |
 | 1 | Database & Schema | COMPLETED | Must have | Phase 0 |
-| 2 | Authentication | NOT_STARTED | Must have | Phase 1 |
+| 2 | Authentication | COMPLETED | Must have | Phase 1 |
 | 3 | Master Data: Rooms & Teachers | NOT_STARTED | Must have | Phase 2 |
 | 4 | Master Data: Subjects & Sections | NOT_STARTED | Must have | Phase 3 |
 | 5 | Setup Wizard | NOT_STARTED | Must have | Phase 4 |
@@ -29,7 +29,7 @@ Living document — update after every development session. Statuses: `NOT_START
 
 | Feature | Status | Notes |
 |---|---|---|
-| Login / role-based redirect | NOT_STARTED | |
+| Login / role-based redirect | COMPLETED | UI, `/logout`, middleware, and `lib/auth.ts` complete |
 | Rooms CRUD + CSV import | NOT_STARTED | |
 | Teachers CRUD + CSV import | NOT_STARTED | |
 | Subjects CRUD + CSV import | NOT_STARTED | |
@@ -115,3 +115,4 @@ Carried over from `TRD.md` §15 and `SCHEMA.md`, still to be resolved during/bef
 | 2026-08-31 | APP_FLOW.md added to DOCS/ (was missing from initial set) |
 | 2026-08-31 | Deleted empty `TimeTableScheduler/` Python/Flask prototype folder (user-authorized — all files were zero-byte stubs, conflicted with documented Next.js architecture) |
 | 2026-09-05 | **Phase 1 COMPLETED** — 9 migration files written to `supabase/migrations/`. All SCHEMA.md §3 tables, §5 indexes, §6 constraints, §9 migration order, and TRD.md §7 RLS policies implemented. Open question 1 (period config) resolved: periods fixed 1–8, days fixed 1–6 via CHECK constraints. |
+| 2026-09-05 | **Phase 2 COMPLETED** — UI (`app/login/page.tsx`), `/logout` route, server-side auth guards (`lib/auth.ts`), and landing stubs for all 3 roles created. Login dynamically routes to `/dashboard`, `/my-timetable`, or `/my-lectures` based on `public.users.role`. |

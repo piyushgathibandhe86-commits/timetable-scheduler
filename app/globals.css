@@ -1,0 +1,94 @@
+﻿/* globals.css — Design tokens from DESIGN.md §4, applied as CSS custom properties */
+
+:root {
+  /* Surface */
+  --surface-page:   #FAFAFA;
+  --surface-card:   #FFFFFF;
+  --surface-muted:  #F1F3F4;
+
+  /* Text */
+  --text-primary:   #1F1F1F;
+  --text-secondary: #5F6368;
+  --text-muted:     #80868B;
+
+  /* Border */
+  --border:         #E3E4E6;
+  --border-strong:  #C9CBCE;
+
+  /* Accent */
+  --accent:         #3B77E8;
+  --accent-muted:   #EAF1FD;
+
+  /* Danger */
+  --danger:         #D63A2E;
+  --danger-muted:   #FCEAE8;
+
+  /* Success */
+  --success:        #1E8E3E;
+  --success-muted:  #E8F5E9;
+
+  /* Radius — DESIGN.md §4 */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* Elevation — DESIGN.md §4 */
+  --shadow-none:  none;
+  --shadow-float: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Subject colour palette — 8 soft ramps (DESIGN.md §4) */
+/* Each subject is assigned one index (0-7) and uses these variables */
+:root {
+  --subject-0: #DBEAFE; --subject-0-text: #1E40AF; /* blue   */
+  --subject-1: #CCFBF1; --subject-1-text: #0F766E; /* teal   */
+  --subject-2: #EDE9FE; --subject-2-text: #6D28D9; /* purple */
+  --subject-3: #FFE4E6; --subject-3-text: #BE123C; /* coral  */
+  --subject-4: #FEF3C7; --subject-4-text: #92400E; /* amber  */
+  --subject-5: #FCE7F3; --subject-5-text: #9D174D; /* pink   */
+  --subject-6: #D1FAE5; --subject-6-text: #065F46; /* green  */
+  --subject-7: #F1F3F4; --subject-7-text: #3C4043; /* gray   */
+}
+
+/* Base reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--surface-page);
+  color: var(--text-primary);
+  font-family: -apple-system, "Segoe UI", Roboto, "Anthropic Sans", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* Focus ring — DESIGN.md §10: visible on every focusable element, never removed */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Scrollbar — minimal, non-intrusive */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--surface-page);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
+}
